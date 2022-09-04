@@ -1,17 +1,30 @@
 package com.hu.eric.gpa;
 
+
+/**
+ * This class models a course, with a name, level, and term scores.
+ * 
+ * @author Eric Hu
+ */
 public class Course {
 
+	/**
+	 * This enum models a course level.
+	 */
 	public static enum Level {
-		H_AP,
-		AE,
-		CP,
-		CP1,
-		UNLEVELED
+		H_AP, 		//Honors/AP 
+		AE,			//Accelerated/Enriched
+		CP,			//College Preparatory
+		CP1,		//College Preparatory 1
+		UNLEVELED	//Unleveled
 		
 	}
 	
+	/**
+	 * This enum models a course letter grade. The associated values are weighted GPA values which depend on the course level.
+	 */
 	public static enum LetterGrade {
+	//	Grade	(H/AP, AE,	 CP,   CP1 )	
 		A_PLUS	(5.00, 4.50, 4.00, 3.50),
 		A		(4.75, 4.25, 3.75, 3.25),
 		A_MINUS	(4.50, 4.00, 3.50, 3.00),
@@ -58,18 +71,17 @@ public class Course {
 	
 	private String name;
 	private Level level;
+	
+	// If score is -1, it counts as no score.
 	private double[] termScores;
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		double[] mathScores = {90.1, 89.2, 90.2, 88.9};
-		Course math = new Course("Precalc", Level.AE, mathScores);
-		System.out.println(math.toString());
-		
-		
-	}
-	
+	/**
+	 * This is the course constructor
+	 * 
+	 * @param name course name
+	 * @param level course level
+	 * @param termScores course term scores in array
+	 */
 	public Course(String name, Level level, double[] termScores) {
 		super();
 		this.name = name;
@@ -77,14 +89,20 @@ public class Course {
 		this.termScores = termScores;
 	}
 	
-	public double getTermAvg() {
+	/**
+	 * This method calculates the average score of a course.
+	 * 
+	 * @return the average score of the course
+	 */
+	public double getCourseAvg() {
 		double sum = 0;
 		int totalTerms = 0;
-		for (double item: termScores) {
-			if (item == -1) {
+		for (double score: termScores) {
+			//skips no score
+			if (score == -1) {
 				continue;
 			}
-			sum += item;
+			sum += score;
 			totalTerms++;
 		}
 		double avg = sum/totalTerms;
@@ -94,8 +112,13 @@ public class Course {
 		return fixedAvg;
 	}
 	
+	/**
+	 * This method calculates course letter grade based on score.
+	 * 
+	 * @return letter grade
+	 */
 	public LetterGrade getLetterGrade() {
-		long avg = Math.round(getTermAvg());
+		long avg = Math.round(getCourseAvg());
 		if (avg >= 97) {
 			return LetterGrade.A_PLUS;
 		} else if (avg >= 93) {
@@ -124,37 +147,75 @@ public class Course {
 			return LetterGrade.F;
 		}
 	}
-
+	
+	/**
+	 * Gets course name.
+	 * 
+	 * @return course name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Sets course name.
+	 * 
+	 * @param name course name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * Gets course level.
+	 * 
+	 * @return course level
+	 */
 	public Level getLevel() {
 		return level;
 	}
 
+	/**
+	 * Sets course level.
+	 * 
+	 * @param level course level
+	 */
 	public void setLevel(Level level) {
 		this.level = level;
 	}
 
+	/**
+	 * Gets course term scores.
+	 * 
+	 * @return course term scores in array form
+	 */
 	public double[] getTermScores() {
 		return termScores;
 	}
 
+	/**
+	 * Sets course term scores
+	 * 
+	 * @param termScores course term scores in array form
+	 */
 	public void setTermScores(double[] termScores) {
 		this.termScores = termScores;
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return "You created the " + name + " course, which is an " + level + " leveled class.";
+		// Course: <name>, level: <level>, scores: <t1>, <t2>, <t3>, <t4>
+		StringBuilder courseSummary = new StringBuilder(); 
+		courseSummary.append("Course: " + name + ", ");
+		courseSummary.append("Level: " + level + ", ");
+		courseSummary.append("Scores: ");
+		for (int i = 0; i < termScores.length; i++) {
+			courseSummary.append(termScores[i] + ", ");
+			if (i == termScores.length-1) {
+				courseSummary.append(termScores[i] + ".");
+			}
+		}
+		return courseSummary.toString();
 	}
-	
-	
 
 }

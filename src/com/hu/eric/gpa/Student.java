@@ -53,7 +53,7 @@ public class Student {
 				}
 				totalClass++;
 				totalGPA += courseGPA;
-				System.out.println(course.getName() + "\t\t" + course.getTermAvg() + "\t\t" + course.getLetterGrade());
+				System.out.println(course.getName() + "\t\t" + course.getCourseAvg() + "\t\t" + course.getLetterGrade());
 			}
 			
 		}

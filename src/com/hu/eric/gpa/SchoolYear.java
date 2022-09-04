@@ -81,7 +81,7 @@ public class SchoolYear {
 			*/
 			numCourses++;
 			totalGPA += courseGPA;
-			System.out.println(item.getName() + "\t\t" + item.getTermAvg() + "\t\t" + item.getLetterGrade());
+			System.out.println(item.getName() + "\t\t" + item.getCourseAvg() + "\t\t" + item.getLetterGrade());
 		}
 		System.out.println("School Year: " + this.getYearName() + "\tGPA: " + totalGPA/numCourses);
 		
