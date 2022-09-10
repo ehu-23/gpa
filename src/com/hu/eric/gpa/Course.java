@@ -7,67 +7,6 @@ package com.hu.eric.gpa;
  * @author Eric Hu
  */
 public class Course {
-
-	/**
-	 * This enum models a course level.
-	 */
-	public static enum Level {
-		H_AP, 		//Honors/AP 
-		AE,			//Accelerated/Enriched
-		CP,			//College Preparatory
-		CP1,		//College Preparatory 1
-		UNLEVELED	//Unleveled
-		
-	}
-	
-	/**
-	 * This enum models a course letter grade. The associated values are weighted GPA values which depend on the course level.
-	 */
-	public static enum LetterGrade {
-	//	Grade	(H/AP, AE,	 CP,   CP1 )	
-		A_PLUS	(5.00, 4.50, 4.00, 3.50),
-		A		(4.75, 4.25, 3.75, 3.25),
-		A_MINUS	(4.50, 4.00, 3.50, 3.00),
-		B_PLUS	(4.25, 3.75, 3.25, 2.75),
-		B		(4.00, 3.50, 3.00, 2.50),
-		B_MINUS	(3.75, 3.25, 3.75, 2.25),
-		C_PLUS	(3.50, 3.00, 2.50, 2.00),
-		C		(3.25, 2.75, 2.25, 1.75),
-		C_MINUS (3.00, 2.50, 2.00, 1.50),
-		D_PLUS	(2.75, 2.25, 1.75, 1.25),
-		D		(2.50, 2.00, 1.50, 1.00),
-		D_MINUS (2.25, 1.75, 1.25, 0.75),
-		F		(0.00, 0.00, 0.00, 0.00);
-		
-		private double honorGPA;
-		private double aeGPA;
-		private double cpGPA;
-		private double cp1GPA;
-		
-		private LetterGrade(double honorGPA, double aeGPA, double cpGPA, double cp1gpa) {
-			this.honorGPA = honorGPA;
-			this.aeGPA = aeGPA;
-			this.cpGPA = cpGPA;
-			this.cp1GPA = cp1gpa;
-		}
-
-		public double getHonorGPA() {
-			return honorGPA;
-		}
-
-		public double getAeGPA() {
-			return aeGPA;
-		}
-
-		public double getCpGPA() {
-			return cpGPA;
-		}
-
-		public double getCp1GPA() {
-			return cp1GPA;
-		}
-		
-	}
 	
 	private String name;
 	private Level level;

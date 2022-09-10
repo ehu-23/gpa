@@ -1,10 +1,5 @@
 package com.hu.eric.gpa;
 
-import java.util.ArrayList;
-
-import com.hu.eric.gpa.Course.LetterGrade;
-import com.hu.eric.gpa.Course.Level;
-
 public class Student {
 	
 	private String name;

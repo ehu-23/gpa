@@ -2,17 +2,7 @@ package com.hu.eric.gpa;
 
 import java.util.ArrayList;
 
-import com.hu.eric.gpa.Course.LetterGrade;
-import com.hu.eric.gpa.Course.Level;
-
 public class SchoolYear {
-
-	public static enum YearName {
-		FRESHMAN,
-		SOPHOMORE,
-		JUNIOR,
-		SENIOR
-	}
 	
 	private YearName yearName;
 	private ArrayList<Course> courses;
