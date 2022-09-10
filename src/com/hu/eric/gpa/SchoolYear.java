@@ -17,26 +17,6 @@ public class SchoolYear {
 	private YearName yearName;
 	private ArrayList<Course> courses;
 	
-	public static SchoolYear createSchoolYear() {
-		ArrayList<Course> schoolCourses = new ArrayList<Course>();
-		
-		Course english = new Course("English", Level.AE, new double[]{92.5, 94.0, 93.7, 92.4});
-		Course math = new Course("Math", Level.AE, new double[]{92.5, 94.0, 93.7, 92.4});
-		Course chem = new Course("Chem", Level.AE, new double[]{92.5, 94.0, 93.7, 92.4});
-		Course history = new Course("History", Level.AE, new double[]{92.5, 94.0, 93.7, 92.4});
-//		english.findLetterGrade();
-		
-		schoolCourses.add(english);
-		schoolCourses.add(math);
-		schoolCourses.add(chem);
-		schoolCourses.add(history);
-		
-		SchoolYear freshman = new SchoolYear(YearName.FRESHMAN, schoolCourses);
-		System.out.println("Freshman Year Grades:");
-		freshman.getGPA();
-		return freshman;
-	}
-	
 	public double getGPA() {
 		int numCourses = 0;
 		double totalGPA = 0.0;
@@ -66,19 +46,7 @@ public class SchoolYear {
 			default:
 				System.out.println("Error");
 			}
-			/*
-			if (item.getLevel() == Level.H_AP) {
-				courseGPA = letterGrade.getHonorGPA();
-			} else if (item.getLevel() == Level.AE) {
-				courseGPA = letterGrade.getAeGPA();
-			} else if (item.getLevel() == Level.CP) {
-				courseGPA = letterGrade.getCpGPA();
-			} else if (item.getLevel() == Level.CP1){
-				courseGPA = letterGrade.getCp1GPA();
-			} else {
-				System.out.println("Error");
-			}
-			*/
+			
 			numCourses++;
 			totalGPA += courseGPA;
 			System.out.println(item.getName() + "\t\t" + item.getCourseAvg() + "\t\t" + item.getLetterGrade());

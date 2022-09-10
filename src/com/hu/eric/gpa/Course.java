@@ -71,6 +71,7 @@ public class Course {
 	
 	private String name;
 	private Level level;
+	private double credits;
 	
 	// If score is -1, it counts as no score.
 	private double[] termScores;
@@ -80,12 +81,14 @@ public class Course {
 	 * 
 	 * @param name course name
 	 * @param level course level
+	 * @param credits course credits
 	 * @param termScores course term scores in array
 	 */
-	public Course(String name, Level level, double[] termScores) {
+	public Course(String name, Level level, double credits, double[] termScores) {
 		super();
 		this.name = name;
 		this.level = level;
+		this.credits = credits;
 		this.termScores = termScores;
 	}
 	
@@ -208,6 +211,7 @@ public class Course {
 		StringBuilder courseSummary = new StringBuilder(); 
 		courseSummary.append("Course: " + name + ", ");
 		courseSummary.append("Level: " + level + ", ");
+		courseSummary.append("Credits: " + credits + ", ");
 		courseSummary.append("Scores: ");
 		for (int i = 0; i < termScores.length; i++) {
 			courseSummary.append(termScores[i] + ", ");
@@ -216,6 +220,24 @@ public class Course {
 			}
 		}
 		return courseSummary.toString();
+	}
+
+	/**
+	 * Gets course credits
+	 * 
+	 * @return course credits
+	 */
+	public double getCredits() {
+		return credits;
+	}
+
+	/**
+	 * Sets course credits
+	 * 
+	 * @param credits course credits
+	 */
+	public void setCredits(double credits) {
+		this.credits = credits;
 	}
 
 }

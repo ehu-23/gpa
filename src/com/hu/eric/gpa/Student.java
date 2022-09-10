@@ -22,7 +22,7 @@ public class Student {
 	 */
 	public double getWeightedGPA() {
 		double totalGPA = 0.0;
-		int totalClass = 0;
+		double totalCredits = 0.0;
 		for (SchoolYear schoolYear: this.grades) {
 			if (schoolYear==null) {
 				continue;
@@ -51,14 +51,14 @@ public class Student {
 				default:
 					System.out.println("Error");
 				}
-				totalClass++;
-				totalGPA += courseGPA;
+				totalCredits += course.getCredits();
+				totalGPA += courseGPA*course.getCredits();
 				System.out.println(course.getName() + "\t\t" + course.getCourseAvg() + "\t\t" + course.getLetterGrade());
 			}
 			
 		}
 		
-		return totalGPA/totalClass;
+		return totalGPA/totalCredits;
 		
 	}
 
