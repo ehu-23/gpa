@@ -1,24 +1,35 @@
 package com.hu.eric.gpa;
 
+/**
+ * This class models a student, which includes a name and year grades
+ * 
+ * @author Eric Hu
+ *
+ */
 public class Student {
 	
 	private String name;
-	private SchoolYear[] grades;
+	private SchoolYear[] yearGrades;
 	
+	/**
+	 * This is the constructor
+	 * 
+	 * @param name student name
+	 */
 	public Student(String name) {
 		this.name = name;
-		this.grades = new SchoolYear[4];
+		this.yearGrades = new SchoolYear[4];
 	}
 	
 	/**
-	 * gets weighted gpa from student information
+	 * Gets weighted GPA from student information
 	 * 
-	 * @return weighted gpa of student
+	 * @return weighted GPA
 	 */
 	public double getWeightedGPA() {
 		double totalGPA = 0.0;
 		double totalCredits = 0.0;
-		for (SchoolYear schoolYear: this.grades) {
+		for (SchoolYear schoolYear: this.yearGrades) {
 			if (schoolYear==null) {
 				continue;
 			}
@@ -48,7 +59,7 @@ public class Student {
 				}
 				totalCredits += course.getCredits();
 				totalGPA += courseGPA*course.getCredits();
-				System.out.println(course.getName() + "\t\t" + course.getCourseAvg() + "\t\t" + course.getLetterGrade());
+				//System.out.println(course.getName() + "\t\t" + course.getCourseAvg() + "\t\t" + course.getLetterGrade());
 			}
 			
 		}
@@ -57,6 +68,11 @@ public class Student {
 		
 	}
 
+	/**
+	 * Adds school year
+	 * 
+	 * @param year school year
+	 */
 	public void addSchoolYear(SchoolYear year) {
 		int index = 0;
 		switch (year.getYearName()) {
@@ -73,26 +89,43 @@ public class Student {
 			index = 3;
 			break;
 		}
-		grades[index] = year;
-		/*
-		 * if (year.getYearName() == SchoolYear.YearName.FRESHMAN) { grades[0] = year; }
-		 */		
+		yearGrades[index] = year;
 	}
 	
+	/**
+	 * Gets student name
+	 * 
+	 * @return student name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Sets student name
+	 * 
+	 * @param name student name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public SchoolYear[] getGrades() {
-		return grades;
+	/**
+	 * Gets student year grades
+	 * 
+	 * @return student year grades
+	 */
+	public SchoolYear[] getYearGrades() {
+		return yearGrades;
 	}
 
-	public void setGrades(SchoolYear[] grades) {
-		this.grades = grades;
+	/**
+	 * Sets student year grades
+	 * 
+	 * @param grades student year grades
+	 */
+	public void setYearGrades(SchoolYear[] grades) {
+		this.yearGrades = grades;
 	}
 
 }

@@ -1,7 +1,8 @@
 package com.hu.eric.gpa;
 
 /**
- * This enum models a course letter grade. The associated values are weighted GPA values which depend on the course level.
+ * This enum models a course letter grade.
+ * The associated values are weighted GPA values which depend on the course level.
  * 
  * @author Eric Hu
  *
