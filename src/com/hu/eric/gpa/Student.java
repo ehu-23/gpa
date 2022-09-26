@@ -33,6 +33,8 @@ public class Student {
 			if (schoolYear==null) {
 				continue;
 			}
+			double yearGPA = 0.0;
+			double yearCredits = 0.0;
 			for (Course course: schoolYear.getCourses()) {
 				if (course.getLevel() == Level.UNLEVELED) {
 					continue;
@@ -57,11 +59,13 @@ public class Student {
 				default:
 					System.out.println("Error");
 				}
+				yearCredits += course.getCredits();
+				yearGPA += courseGPA*course.getCredits();
 				totalCredits += course.getCredits();
 				totalGPA += courseGPA*course.getCredits();
 				//System.out.println(course.getName() + "\t\t" + course.getCourseAvg() + "\t\t" + course.getLetterGrade());
 			}
-			
+			System.out.println(this.getName() + "'s " + schoolYear.getYearName() + " weighted GPA is: " + yearGPA/yearCredits);
 		}
 		
 		return totalGPA/totalCredits;
